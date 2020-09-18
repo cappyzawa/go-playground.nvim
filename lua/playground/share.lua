@@ -1,15 +1,12 @@
 local vim = vim
 local system = vim.fn.system
 local client = require'playground/client'
+local utils = require'playground/utils'
 local playground_url = "https://play.golang.org"
 
 local M = {
   share = function (s, e)
-    local platform = string.gsub(system("uname"), "\n", "")
-    if not (platform == "Darwin" or platform == "Linux") then
-      error(string.format("os: %s is not supported", platform))
-      return
-    end
+    local browser_cmd = utils.browser()
 
     local bufnr = vim.api.nvim_get_current_buf()
     local url = string.format("%s/share", playground_url)
@@ -18,7 +15,7 @@ local M = {
     if vim.api.nvim_get_vvar("shell_error") == 0 then
       local shared_url = string.format("%s/p/%s", playground_url, out)
       print(shared_url)
-      system("open " .. shared_url)
+      system(string.format("%s %s", browser_cmd, shared_url))
     else
       error(out)
     end

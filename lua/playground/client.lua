@@ -7,7 +7,7 @@ local http_method = {
 
 local client = {
   post = function (url, body)
-    local command = string.format("curl -sX %s %s -d 'body=%s'", http_method.POST, url, body)
+    local command = string.format("curl -sX %s %s -d '%s'", http_method.POST, url, body)
     return system(command)
   end
 }

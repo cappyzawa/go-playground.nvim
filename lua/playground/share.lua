@@ -10,7 +10,7 @@ local M = {
 
     local bufnr = vim.api.nvim_get_current_buf()
     local url = string.format("%s/share", playground_url)
-    local body = table.concat(vim.api.nvim_buf_get_lines(bufnr, s, e, true), "\n")
+    local body = table.concat(vim.api.nvim_buf_get_lines(bufnr, s-1, e, true), "\n")
     local out = client.post(url, body)
     if vim.api.nvim_get_vvar("shell_error") == 0 then
       local shared_url = string.format("%s/p/%s", playground_url, out)

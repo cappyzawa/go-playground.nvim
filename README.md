@@ -17,14 +17,13 @@ A neovim plugin for https://play.golang.org written by lua.
 Plug 'cappyzawa/go-playground.nvim'
 ```
 
-## How to setup
-
-```vim
-lua require'playground'.setup{}
-```
-
 ## How to use
 
-```
+```vim
+" The Go Playground
 :GoPlayground
+
+
+" The go2go Playground
+:Go2GoPlayground
 ```

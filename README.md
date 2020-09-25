@@ -3,7 +3,7 @@
 [![GitHub release](https://img.shields.io/github/release/cappyzawa/go-playground.nvim.svg)](https://github.com/cappyzawa/go-playground.nvim/releases)
 [![GitHub](https://img.shields.io/github/license/cappyzawa/go-playground.nvim.svg)](./LICENSE)
 
-A neovim plugin for https://play.golang.org written by lua.
+A neovim plugin for [The Go Playground](https://play.golang.org/) and [The go2go Playground](https://go2goplay.golang.org/) written by lua.
 
 ## Requirements
 

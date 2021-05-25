@@ -8,8 +8,14 @@ local M = {
       Linux = "open",
     }
     local uname = string.gsub(system("uname"), "\n", "")
+    local supported = false
     for k, cmd in pairs(cmd_map) do
-      if uname == k then return cmd end
+      if uname == k then
+        supported = true
+        return cmd
+      end
+    end
+    if not(supported) then
       error(string.format("%s is not supported", uname))
     end
   end

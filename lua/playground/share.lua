@@ -2,17 +2,17 @@ local vim = vim
 local system = vim.fn.system
 local client = require'playground/client'
 local utils = require'playground/utils'
-local playground_url = "https://play.golang.org"
-local playground2_url = "https://go2goplay.golang.org"
+local play_golang_url = "https://play.golang.org"
+local gotipplay_golang_url = "https://gotipplay.golang.org"
 
 local M = {}
 
-function M.play (s, e, play2)
+function M.play (s, e, gotip)
   local browser_cmd = utils.browser()
 
   local bufnr = vim.api.nvim_get_current_buf()
-  local url = playground_url
-  if play2 then url = playground2_url end
+  local url = play_golang_url
+  if gotip then url = gotipplay_golang_url end
   local share_url = string.format("%s/share", url)
   local body = table.concat(vim.api.nvim_buf_get_lines(bufnr, s-1, e, true), "\n")
   local out = client.post(share_url, body)

@@ -10,7 +10,7 @@ let s:save_cpo = &cpo
 set cpo&vim
 
 command! -range=% -bang GoPlayground lua require'playground/share'.play(<line1>, <line2>, false)
-command! -range=% -bang Go2GoPlayground lua require'playground/share'.play(<line1>, <line2>, true)
+command! -range=% -bang GoTipPlayground lua require'playground/share'.play(<line1>, <line2>, true)
 
 let &cpo = s:save_cpo
 unlet s:save_cpo
